@@ -43,6 +43,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 }
 
 export const login = (username, password) => dispatch => {
+
   dispatch(authRequest())
   return (
     fetch(`${API_BASE_URL}/auth/login`, {
@@ -99,5 +100,6 @@ export const refreshAuthToken = () => (dispatch, getState) => {
       dispatch(authError(err))
       dispatch(clearAuth())
       clearAuthToken(authToken)
+
     })
 }

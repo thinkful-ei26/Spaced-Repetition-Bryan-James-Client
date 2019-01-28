@@ -14,9 +14,9 @@ export function LandingPage(props) {
   // If the user is logged in, we will redirect the user to the specific dashboard.
   // Else, we will explain the purpose of the application. Should offer two additional buttons for Login/Register
   return (
-    <div className='home'>
+    <div className='home title'>
       <h2>Welcome to Learn Python!</h2>
-      <div className='landing'>
+      <div className='landing about'>
         Before they sold out farm-to-table master cleanse beard, flexitarian
         echo park iPhone quinoa +1 cloud bread gluten-free hell of man bun.
         Mumblecore fingerstache tote bag ramps. Shabby chic hell of hoodie YOLO

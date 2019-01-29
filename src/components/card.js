@@ -1,19 +1,29 @@
 import React, { Component } from 'react'
-import { Field, reduxForm, focus } from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
 import { fetchProtectedData } from '../actions/protected-data'
+import Input from './input'
+import { required, nonEmpty } from '../validators'
 
-export default class Card extends Component {
+export class Card extends Component {
     onSubmit(question) {
+        return this.props.dispatch(fetchProtectedData(null))
+        // return this.props.dispatch(queryServerToValidateAnswer(user answer))
+    }
+    onNext(question) {
         return this.props.dispatch(fetchProtectedData(question))
     }
     render() {
         return (
             <div className='question card'>
                 <div className='question component'>
-                    {this.props.protectedData.question}
+                    This is where the question data from the server will be
+                    rendered
+                    {/* {this.props.protectedData.question} */}
                 </div>
                 <div className='answer component'>
-                    {this.props.protectedData.answer}
+                    This should be hidden from the user and contain the answer
+                    to the question.
+                    {/* {this.props.protectedData.answer} */}
                 </div>
                 <form
                     className='answer-form'
@@ -28,9 +38,17 @@ export default class Card extends Component {
                         id='answer'
                         validate={[required, nonEmpty]}
                     />
+                    <button
+                        disabled={this.props.pristine || this.props.submitting}>
+                        Submit
+                    </button>
                 </form>
                 <div className='input component' />
             </div>
         )
     }
 }
+
+export default reduxForm({
+    form: 'userResponse',
+})(Card)

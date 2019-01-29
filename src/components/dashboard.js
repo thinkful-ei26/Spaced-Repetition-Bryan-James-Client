@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import requiresLogin from './requires-login'
 import { fetchProtectedData } from '../actions/protected-data'
 import Card from './card'
+import Progress from './progress'
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -16,6 +17,7 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div> */}
                 <div className='dashboard-name'>Hello {this.props.name}!</div>
+                <Progress />
                 <Card protectedData={this.props.protectedData} />
                 {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
@@ -27,12 +29,12 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     const { currentUser } = state.auth
-    return {
+    return ({
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
         // is now question 1 ^^
-    }
+    })
 }
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard))

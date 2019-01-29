@@ -11,7 +11,7 @@ export class Card extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            feedbackVisible: false
+            feedbackVisible: false,
         }
     }
     onSubmit(userInput) {
@@ -35,8 +35,7 @@ export class Card extends Component {
         return (
             <div className='question card'>
                 <div className='question component'>
-                    This is where the question data from the server will be
-                    rendered
+                    Question:
                     {this.props.protectedData.Question}
                 </div>
                 <div className='answer component'>

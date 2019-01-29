@@ -6,7 +6,7 @@ import Card from './card'
 
 export class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData(null))
+        this.props.dispatch(fetchProtectedData({}))
     }
 
     render() {
@@ -16,7 +16,7 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div> */}
                 <div className='dashboard-name'>Hello {this.props.name}!</div>
-                <Card protectedData={this.props.protectedData.data} />
+                <Card protectedData={this.props.protectedData} />
                 {/* <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
                 </div> */}

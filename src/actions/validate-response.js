@@ -13,18 +13,20 @@ export const validateResponseError = error => ({
     error,
 })
 
-export const validateResponse = question => (dispatch, getState) => {
+export const validateResponse = userInput => (dispatch, getState) => {
     const authToken = getState().auth.authToken
     return fetch(`${API_BASE_URL}/data`, {
         method: 'POST',
         headers: {
             // Provide our auth token as credentials
+            'Content-Type': 'application/json; charset=utf-8',
             Authorization: `Bearer ${authToken}`,
         },
+        body: JSON.stringify(userInput),
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({ data }) => dispatch(validateResponseSuccess(data)))
+        .then(data => dispatch(validateResponseSuccess(data)))
         .catch(err => {
             dispatch(validateResponseError(err))
         })

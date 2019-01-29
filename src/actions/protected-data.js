@@ -19,12 +19,16 @@ export const fetchProtectedData = question => (dispatch, getState) => {
         method: 'POST',
         headers: {
             // Provide our auth token as credentials
+            'Content-Type': 'application/json; charset=utf-8',
             Authorization: `Bearer ${authToken}`,
         },
+        body: JSON.stringify(question),
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(({ data }) => dispatch(fetchProtectedDataSuccess(data)))
+        .then(data => {
+            dispatch(fetchProtectedDataSuccess(data))
+        })
         .catch(err => {
             dispatch(fetchProtectedDataError(err))
         })

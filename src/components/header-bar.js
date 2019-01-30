@@ -2,10 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { clearAuth } from '../actions/auth'
 import { clearAuthToken } from '../local-storage'
+import { logoutProtectedData } from '../actions/protected-data';
+import { logoutValidate } from '../actions/validate-response';
 
 export class HeaderBar extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth())
+    //also dispatch clear state for protectedData and validateResponse redux
+    this.props.dispatch(logoutProtectedData());
+    this.props.dispatch(logoutValidate());
     clearAuthToken()
   }
 

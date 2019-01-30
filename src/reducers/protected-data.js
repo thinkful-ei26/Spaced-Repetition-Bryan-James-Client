@@ -3,7 +3,8 @@ import {
     FETCH_PROTECTED_DATA_ERROR,
     FETCH_ALL_QUESTIONS_SUCCESS,
     COUNT_CORRECT,
-    COUNT_WRONG
+    COUNT_WRONG,
+    LOGOUT_PROTECTED_DATA,
 } from '../actions/protected-data';
 
 const initialState = {
@@ -54,6 +55,15 @@ export default function reducer(state = initialState, action) {
             newScore = 0;
         }
         return Object.assign({}, state, {sessionScore: newScore});
+    }
+    else if(action.type === LOGOUT_PROTECTED_DATA){
+        let resetState = {
+            data: '',
+            allQuestions : [],
+            sessionScore : 0,
+            error: null
+        };// the initial State values
+        return resetState;
     }
     return state;
 }

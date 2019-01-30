@@ -12,6 +12,11 @@ export const validateResponseError = error => ({
     type: VALIDATE_RESPONSE_ERROR,
     error,
 })
+export const LOGOUT_VALIDATE = 'LOGOUT_VALIDATE';
+export const logoutValidate = () => ({
+    type: LOGOUT_VALIDATE,
+});
+
 
 export const validateResponse = userInput => (dispatch, getState) => {
     const authToken = getState().auth.authToken

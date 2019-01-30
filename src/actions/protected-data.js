@@ -29,6 +29,12 @@ export const countWrong = data => ({
     type: COUNT_WRONG,
     data,
 });
+
+export const LOGOUT_PROTECTED_DATA = 'LOGOUT_PROTECTED_DATA';
+export const logoutProtectedData = () => ({
+    type: LOGOUT_PROTECTED_DATA,
+});
+
 export const fetchAllQuestions = user => dispatch => {
     return fetch(`${API_BASE_URL}/all`, {
         method: 'POST',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { fetchProtectedData } from '../actions/protected-data'
+import { fetchProtectedData, countCorrect, countWrong } from '../actions/protected-data'
 import Input from './input'
 import { required, nonEmpty } from '../validators'
 import { validateResponse } from '../actions/validate-response'
@@ -12,23 +12,32 @@ export class Card extends Component {
         super(props)
         this.state = {
             feedbackVisible: false,
+            hasAnswered : false,
         }
     }
     onSubmit(userInput) {
         let objWhateverSomething = {
-            Question: this.props.protectedData.Question,
+            id: this.props.protectedData.id,
             Answer: userInput.answer,
         }
         // Once we submit, change the state of hidden to false
-        this.setState({ feedbackVisible: true })
+        this.setState({ feedbackVisible: true, hasAnswered: true })
         return this.props.dispatch(validateResponse(objWhateverSomething))
+        .then(()=>{
+            //here this.props.validateData has been updated
+            if(this.props.validateData==='Correct'){
+                this.props.dispatch(countCorrect({id: this.props.protectedData.id}));
+            } else {
+                this.props.dispatch(countWrong({id: this.props.protectedData.id}));
+            }
+        });
         // return this.props.dispatch(queryServerToValidateAnswer(user answer))
     }
     onNext() {
         let objSomethingWhatever = {
-            Question: this.props.protectedData.Question,
+            id: this.props.protectedData.id,
         }
-        this.setState({ feedbackVisible: false })
+        this.setState({ feedbackVisible: false, hasAnswered: false })
         return this.props.dispatch(fetchProtectedData(objSomethingWhatever))
     }
     render() {
@@ -58,7 +67,7 @@ export class Card extends Component {
                         validate={[required, nonEmpty]}
                     />
                     <button
-                        disabled={this.props.pristine || this.props.submitting}>
+                        disabled={this.props.pristine || this.props.submitting || this.state.hasAnswered}>
                         Submit
                     </button>
                 </form>

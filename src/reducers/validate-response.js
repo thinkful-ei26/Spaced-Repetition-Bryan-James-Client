@@ -9,10 +9,10 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case VALIDATE_RESPONSE_SUCCESS:
-            return { ...state, data: action.data, error: null }
+            return Object.assign({}, state, {data: action.data.feedback, error: null });
         case VALIDATE_RESPONSE_ERROR:
-            return { ...state, error: action.error }
+            return Object.assign({}, state, {error: action.error});
         default:
-            return state
+            return state;
     }
 }

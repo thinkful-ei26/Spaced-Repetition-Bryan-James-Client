@@ -31,11 +31,11 @@ export class Card extends Component {
                 this.props.dispatch(countWrong({id: this.props.protectedData.id}));
             }
         });
-        // return this.props.dispatch(queryServerToValidateAnswer(user answer))
+        
     }
     onNext() {
         let objSomethingWhatever = {
-            id: this.props.protectedData.id,
+            nextQuestionIndex: this.props.protectedData.next,
         }
         this.setState({ feedbackVisible: false, hasAnswered: false })
         return this.props.dispatch(fetchProtectedData(objSomethingWhatever))

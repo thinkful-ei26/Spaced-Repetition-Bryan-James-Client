@@ -5,6 +5,7 @@ import {
     COUNT_CORRECT,
     COUNT_WRONG,
     LOGOUT_PROTECTED_DATA,
+    RESET_SESSION_SCORE,
 } from '../actions/protected-data';
 
 const initialState = {
@@ -62,8 +63,15 @@ export default function reducer(state = initialState, action) {
             allQuestions : [],
             sessionScore : 0,
             error: null
-        };// the initial State values
+        };// the initial State values 
         return resetState;
+    }
+    else if(action.type === RESET_SESSION_SCORE){
+        let resetScore = Object.assign({}, state, {
+            sessionScore : 0,
+            error: null
+        });
+        return resetScore;
     }
     return state;
 }

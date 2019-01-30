@@ -8,7 +8,7 @@ import Progress from './progress'
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData({}))
-        this.props.dispatch(fetchAllQuestions({"authToken": this.props.token}))
+        this.props.dispatch(fetchAllQuestions())
     }
 
     render() {
@@ -32,10 +32,9 @@ const mapStateToProps = state => {
     const { currentUser } = state.auth
     return ({
         username: state.auth.currentUser.username,
-        token : state.auth.authToken,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
-        // is now question 1 ^^
+        // is now question current ^^
     })
 }
 

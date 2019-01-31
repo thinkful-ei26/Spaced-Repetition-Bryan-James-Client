@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
+import Trial from './trial'
 
 // import LoginForm from './login-form'
 
@@ -27,6 +28,7 @@ export function LandingPage(props) {
       </div>
       <Link to='/login'>Login</Link>
       <Link to='/register'>Register</Link>
+      <Link to='/trial'>Trial</Link>
     </div>
   )
 }

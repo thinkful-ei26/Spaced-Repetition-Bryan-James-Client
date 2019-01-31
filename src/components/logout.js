@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom'
 export class Logout extends Component {
   constructor(props) {
     super(props)
-    this.state = { logOutWait: '' }
+    this.state = { logOutWait: false }
 
   }
   componentDidMount() {
@@ -17,31 +17,28 @@ export class Logout extends Component {
     this.props.dispatch(logoutProtectedData());
     this.props.dispatch(logoutValidate());
     clearAuthToken()
-    // this.redirectMethod()
-  }
-
-  // redirectMethod() {
-  //   console.log('we are here')
-  //   setInterval(
-  //     () => { this.setState({ logOutWait: <Redirect to='/' /> }) },
-  //     3 * 1000 // One day refresh token
-  //   )
-  // }
-
-  render() {
-    let logOutWait = ''
-    setInterval(
-      () => logOutWait = <Redirect to='/' />,
+    setTimeout(
+      () => {
+        this.setState({ logOutWait: true })
+      },
       3 * 1000 // One day refresh token
     )
-    return (
-      <div>
+  }
+
+  render() {
+    if (!this.state.logOutWait) {
+      return (<div>
         <span className="logout">
           You have successfully logged out.
         </span>
-        {logOutWait}
-      </div>
-    )
+      </div>)
+    } else {
+      return (
+        <div>
+          <Redirect to='/' />
+        </div>
+      )
+    }
   }
 }
 

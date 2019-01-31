@@ -23,3 +23,7 @@ h2 {
   background: black;
   opacity: .4;
 }
+
+html {
+  background-image: url("/background.jpg")
+}

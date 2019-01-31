@@ -2,4 +2,24 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: white;
+  font-weight: 2;
+  text-align: center;
+}
+
+._2zEKz {
+  position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: -1;
+}
+
+span {
+  background: black;
+}
+
+h2 {
+  background: black;
+  opacity: .4;
 }

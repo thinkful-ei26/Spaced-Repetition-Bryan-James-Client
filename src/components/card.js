@@ -12,7 +12,7 @@ export class Card extends Component {
         super(props)
         this.state = {
             feedbackVisible: false,
-            hasAnswered : false,
+            hasAnswered: false,
         }
     }
     onSubmit(userInput) {
@@ -23,15 +23,15 @@ export class Card extends Component {
         // Once we submit, change the state of hidden to false
         this.setState({ feedbackVisible: true, hasAnswered: true })
         return this.props.dispatch(validateResponse(objWhateverSomething))
-        .then(()=>{
-            //here this.props.validateData has been updated
-            if(this.props.validateData==='Correct'){
-                this.props.dispatch(countCorrect({id: this.props.protectedData.id}));
-            } else {
-                this.props.dispatch(countWrong({id: this.props.protectedData.id}));
-            }
-        });
-        
+            .then(() => {
+                //here this.props.validateData has been updated
+                if (this.props.validateData === 'Correct') {
+                    this.props.dispatch(countCorrect({ id: this.props.protectedData.id }));
+                } else {
+                    this.props.dispatch(countWrong({ id: this.props.protectedData.id }));
+                }
+            });
+
     }
     onNext() {
         let objSomethingWhatever = {
@@ -71,9 +71,10 @@ export class Card extends Component {
                         Submit
                     </button>
                 </form>
-                <button type='button' onClick={() => this.onNext()}>
+                {/* <button type='button' onClick={() => this.onNext()}>
                     Next
-                </button>
+                </button> */}
+                <a className="waves-effect waves-teal lighten-2 btn-flat" onClick={() => this.onNext()}>Next</a>
                 <div className='input component' />
             </div>
         )

@@ -43,6 +43,9 @@ export default function reducer(state = initialState, action) {
             return item;
         });
         let newScore = state.sessionScore + 1;
+        if(newScore >=10){
+            newScore = 10;
+        }
         return Object.assign({}, state, {allQuestions: [...newCount], sessionScore: newScore});
     }
      else if(action.type === COUNT_WRONG){

@@ -17,7 +17,7 @@ export function LandingPage(props) {
   return (
     <div className='home title container'>
       <div className="center">
-        <h2>Welcome to Learn Python!</h2>
+        <h2>Learn with 'Easy as Python' </h2>
       </div>
       <div className='landing about card'>
         <h5>Before they sold out farm-to-table master cleanse beard, flexitarian

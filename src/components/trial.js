@@ -11,7 +11,7 @@ export default class Trial extends Component {
   nextLesson() {
     let nextL = this.state.currentLesson + 1;
     if (nextL === this.state.maxLessons) {
-      nextL = 0;
+      nextL = 0
     }
     this.setState({
       currentLesson: nextL
@@ -32,9 +32,9 @@ export default class Trial extends Component {
     ];
     return (
       <div className="trial container">
-        <div className="center">
+        {/* <div className="center">
           Here learning happens
-        </div>
+        </div> */}
         <div className='lessonsText card'><div className='center'>{lessons[this.state.currentLesson]}</div>
           <div className="center"><a className="waves-effect waves-teal lighten-2 btn-flat center"
             onClick={() => { this.nextLesson() }}>Next Lesson</a>

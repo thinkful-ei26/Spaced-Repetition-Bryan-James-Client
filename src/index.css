@@ -41,3 +41,9 @@ label {
 .question, .component {
   margin: .125rem;
 }
+
+@media (min-width: 992px) {
+  nav .brand-logo {
+    padding-left: .425rem;
+  }
+}

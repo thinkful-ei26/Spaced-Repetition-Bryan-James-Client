@@ -6,7 +6,7 @@ export class Progress extends Component {
   render() {
     return (
       <div>
-        <p className='score center-align'>Session Score: {this.props.score} / 10</p>
+        <p className='score center-align white-text flow-text'>Session Score: {this.props.score} / 10</p>
       </div>
     )
   }

@@ -47,7 +47,7 @@ export class Card extends Component {
             submitBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat disabled">Submit</a>)
         }
         return (
-            <div className='question card col s12 m8 l6'>
+            <div className='question card col s12 m8 l6 flow-text'>
                 <div className='question component col s6 m6 l6'>
                     <span className='bold'>Question: </span>
                     {this.props.protectedData.Question}

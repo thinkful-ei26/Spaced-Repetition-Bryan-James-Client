@@ -8,9 +8,11 @@ An application for learning the Python Programming language using the Spaced Rep
 
 ### Links
 
-[Github repo for server:](https://github.com/thinkful-ei26/Spaced-Repetition-Bryan-James-server)
-[Github for client:](https://github.com/thinkful-ei26/Spaced-Repetition-Bryan-James-Client)
-[Live deploy at:](https://bryan-james-learn-python.herokuapp.com/)
+[Github repo for server: https://github.com/thinkful-ei26/Spaced-Repetition-Bryan-James-server](https://github.com/thinkful-ei26/Spaced-Repetition-Bryan-James-server)
+
+[Github for client: https://github.com/thinkful-ei26/Spaced-Repetition-Bryan-James-Client](https://github.com/thinkful-ei26/Spaced-Repetition-Bryan-James-Client)
+
+[Live deploy at: https://bryan-james-learn-python.herokuapp.com](https://bryan-james-learn-python.herokuapp.com)
 
 ### Working on the project
 

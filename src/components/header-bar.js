@@ -39,7 +39,7 @@ export class HeaderBar extends React.Component {
                 Easy as Pie-thon
               </a>
             </div>
-            <a href="/" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons right">menu</i></a>
+            <a href="/" data-target="mobile-demo" className="sidenav-trigger right"><i className="material-icons right">menu</i></a>
             <ul className="right hide-on-med-and-down">
               {loginBtn}
               {registerBtn}
@@ -50,7 +50,7 @@ export class HeaderBar extends React.Component {
           </div>
         </nav>
         {/* {hamburgerBtn} */}
-        <ul class="sidenav right" id="mobile-demo">
+        <ul className="sidenav right" id="mobile-demo">
           {loginBtn}
           {registerBtn}
           {trialBtn}

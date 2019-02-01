@@ -20,13 +20,7 @@ export function LandingPage(props) {
         <h2>Learn with 'Easy as Python' </h2>
       </div>
       <div className='landing about card'>
-        <h5>Before they sold out farm-to-table master cleanse beard, flexitarian
-        echo park iPhone quinoa +1 cloud bread gluten-free hell of man bun.
-        Mumblecore fingerstache tote bag ramps. Shabby chic hell of hoodie YOLO
-        typewriter you probably haven't heard of them hammock tbh hexagon
-        readymade chartreuse portland williamsburg copper mug yuccie. Lo-fi
-        PBR&B lumbersexual four loko poutine blue bottle. Jean shorts chillwave
-        marfa vice direct trade, tousled beard.
+        <h5>Easy as Python is an easy to use app for memorizing some Python code. Users can read simple facts about the Python programming language. Registering for the App allows the user to login to store their progress and get a score depending on how many questions they have answered correctly.
         </h5>
       </div>
       {/* <Link to='/login'>Login</Link>

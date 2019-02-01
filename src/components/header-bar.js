@@ -36,7 +36,7 @@ export class HeaderBar extends React.Component {
             <div className='padding'>
               <a href='/' className="brand-logo left">
                 <i className="material-icons left">computer</i>
-                Learn Python
+                Easy as Pie-thon
               </a>
             </div>
             <a href="/" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons right">menu</i></a>

@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -23,7 +23,21 @@ h2 {
   background: black;
   opacity: .4;
 }
-
+ */
 html {
-  background-image: url("/background.jpg")
+  background-image: url("/background.jpg");
+} 
+
+label {
+  color: #004080;
+  margin-left: .25rem;
+  padding-left: .125rem;
+}
+
+/* .brand-logo .left {
+  margin-left: 15px;
+} */
+
+.question, .component {
+  margin: .125rem;
 }

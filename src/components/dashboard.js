@@ -13,11 +13,11 @@ export class Dashboard extends React.Component {
 
     render() {
         return (
-            <div className='dashboard'>
+            <div className='dashboard container col l8 m4 s12'>
                 {/* <div className="dashboard-username">
                     Username: {this.props.username}
                 </div> */}
-                <div className='dashboard-name'>Hello {this.props.name}!</div>
+                <div className='dashboard-name center-align'>Hello {this.props.name}!</div>
                 <Progress />
                 <Card protectedData={this.props.protectedData} />
                 {/* <div className="dashboard-protected-data">

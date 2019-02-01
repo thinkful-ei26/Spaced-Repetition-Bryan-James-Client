@@ -41,24 +41,25 @@ export class Card extends Component {
         return this.props.dispatch(fetchProtectedData(objSomethingWhatever))
     }
     render() {
+        let submitBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat"
+            onClick={this.props.handleSubmit(values => this.onSubmit(values))}>Submit</a>)
+        if (this.props.pristine || this.props.submitting || this.state.hasAnswered) {
+            submitBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat disabled">Submit</a>)
+        }
         return (
-            <div className='question card'>
-                <div className='question component'>
-                    Question:
+            <div className='question card col s12 m8 l6'>
+                <div className='question component col s6 m6 l6'>
+                    <span className='bold'>Question: </span>
                     {this.props.protectedData.Question}
                 </div>
-                <div className='answer component'>
-                    This should be hidden from the user and contain the answer
-                    to the question.
-                    {this.props.protectedData.Answer}
-                </div>
+
                 <Feedback data={this.props.validateData} feedbackVisible={this.state.feedbackVisible} />
                 <form
-                    className='answer-form'
+                    className='answer-form col s6 m6 l6 center-align'
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
-                    <label htmlFor='answer'>Answer</label>
+                    <label htmlFor='answer center-align'>Answer</label>
                     <Field
                         component={Input}
                         type='text'
@@ -66,16 +67,18 @@ export class Card extends Component {
                         id='answer'
                         validate={[required, nonEmpty]}
                     />
-                    <button
+                    {/* <button
                         disabled={this.props.pristine || this.props.submitting || this.state.hasAnswered}>
                         Submit
-                    </button>
-                </form>
-                {/* <button type='button' onClick={() => this.onNext()}>
+                    </button> */}
+                    {/* <a className="waves-effect waves-teal lighten-2 btn-flat">Submit</a> */}
+                    <div className="center-align">{submitBtn}
+                        {/* <button type='button' onClick={() => this.onNext()}>
                     Next
                 </button> */}
-                <a className="waves-effect waves-teal lighten-2 btn-flat" onClick={() => this.onNext()}>Next</a>
-                <div className='input component' />
+                        <a className="waves-effect waves-teal lighten-2 btn-flat" onClick={() => this.onNext()}>Next</a>
+                    </div>
+                </form>
             </div>
         )
     }

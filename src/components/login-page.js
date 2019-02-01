@@ -11,8 +11,12 @@ export function LoginPage(props) {
     return <Redirect to='/dashboard' />
   }
   return (
-    <div className='login form'>
-      <LoginForm />
+    <div className='container'>
+      <div className="card s6 m6 l6">
+        <div className='login form card'>
+          <LoginForm />
+        </div>
+      </div>
     </div>
   )
 }

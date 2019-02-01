@@ -27,10 +27,14 @@ export class Logout extends Component {
 
   render() {
     if (!this.state.logOutWait) {
-      return (<div>
-        <span className="logout">
-          You have successfully logged out.
+      return (<div className='container'>
+        <div className="card">
+          <div className="center">
+            <span className="logout text-red">
+              You have successfully logged out.
         </span>
+          </div>
+        </div>
       </div>)
     } else {
       return (

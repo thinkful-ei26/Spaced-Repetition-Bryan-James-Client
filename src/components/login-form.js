@@ -10,6 +10,13 @@ export class LoginForm extends React.Component {
     }
 
     render() {
+        let loginBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat center"
+            onClick={this.props.handleSubmit(values =>
+                this.onSubmit(values)
+            )}>Login</a>)
+        if (this.props.pristine || this.props.submitting) {
+            loginBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat center disabled">Login</a>)
+        }
         let error
         if (this.props.error) {
             error = (
@@ -41,9 +48,7 @@ export class LoginForm extends React.Component {
                     id='password'
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
+                <div className="center">{loginBtn}</div>
             </form>
         )
     }

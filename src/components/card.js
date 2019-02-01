@@ -21,7 +21,7 @@ export class Card extends Component {
             Answer: userInput.answer,
         }
         // Once we submit, change the state of hidden to false
-        this.setState({ feedbackVisible: true, hasAnswered: true })
+       
         return this.props.dispatch(validateResponse(objWhateverSomething))
             .then(() => {
                 //here this.props.validateData has been updated
@@ -30,6 +30,7 @@ export class Card extends Component {
                 } else {
                     this.props.dispatch(countWrong({ id: this.props.protectedData.id }));
                 }
+                this.setState({ feedbackVisible: true, hasAnswered: true })
             });
 
     }

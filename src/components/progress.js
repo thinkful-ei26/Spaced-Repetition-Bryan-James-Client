@@ -24,15 +24,10 @@ export class Progress extends Component {
   render() {
    
     return (
-<<<<<<< HEAD
-      <div>
-        <p className='score center-align white-text flow-text'>Session Score: {this.props.score} / 10</p>
-=======
       <div className='center'>
-        <p className='score'>Session Score: {this.props.score} / 10</p>
+        <p className='score center-align white-text flow-text'>Session Score: {this.props.score} / 10</p>
         <img src={this.state.pieImage[this.props.score]} alt='pie-progress pic'/>
->>>>>>> features/piegress
-      </div>
+     </div>
     )
   }
 }

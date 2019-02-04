@@ -1,9 +1,11 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import { registerUser } from '../actions/users';
+import { registerUser, registerError } from '../actions/users';
 import { login } from '../actions/auth';
 import Input from './input';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
+import { connect } from 'react-dom';
+
 const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches('password');
 
@@ -11,9 +13,13 @@ export class RegistrationForm extends React.Component {
     onSubmit(values) {
         const { username, password, firstName, lastName } = values;
         const user = { username, password, firstName, lastName };
-        return this.props
-            .dispatch(registerUser(user))
-            .then(() => this.props.dispatch(login(username, password)));
+        return this.props.dispatch(registerUser(user))
+        .then(other=>{
+            console.log("before asdsd", other);
+        })
+            .catch(err=>{
+              return this.props.dispatch(registerError(err))
+            })
     }
 
     render() {
@@ -25,12 +31,19 @@ export class RegistrationForm extends React.Component {
         if (this.props.pristine || this.props.submitting) {
             registerBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat center disabled">Register</a>)
         }
+        let errorMessage;
+        let successMessage;
+        if (this.props.parentError) {
+            errorMessage = (<p className="message message-error">{this.props.parentError.reason}</p>);
+        }
         return (
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                 {errorMessage}
+                 {successMessage}
                 <label htmlFor="firstName">First name</label>
                 <Field component={Input} type="text" name="firstName" />
                 <label htmlFor="lastName">Last name</label>

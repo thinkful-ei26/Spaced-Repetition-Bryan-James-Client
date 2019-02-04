@@ -16,7 +16,7 @@ export function RegistrationPage(props) {
         <h2>Register for Easy as Pie-thon</h2>
       </span>
       <div className='card'>
-        <RegistrationForm />
+        <RegistrationForm parentError={props.error} />
         {/* <Link to='/login'>Login</Link> */}
       </div>
     </div>
@@ -25,6 +25,7 @@ export function RegistrationPage(props) {
 
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
+  error: state.register.error
 })
 
 export default connect(mapStateToProps)(RegistrationPage)

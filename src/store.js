@@ -5,7 +5,8 @@ import { loadAuthToken } from './local-storage'
 import authReducer from './reducers/auth'
 import protectedDataReducer from './reducers/protected-data'
 import validateResponseReducer from './reducers/validate-response'
-import { setAuthToken, refreshAuthToken } from './actions/auth'
+import { setAuthToken, refreshAuthToken } from './actions/auth';
+import { registerReducer } from './reducers/users';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -13,6 +14,7 @@ const store = createStore(
     combineReducers({
         form: formReducer,
         auth: authReducer,
+        register: registerReducer,
         protectedData: protectedDataReducer,
         validateResponse: validateResponseReducer,
     }),

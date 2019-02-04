@@ -30,9 +30,9 @@ export const registerUser = user => dispatch => {
                 dispatch(registerError(res));
             }
             }else {
-                console.log("no error", res)
+                // console.log("no error", res)
 
-                dispatch(registerSuccess(res.json()));
+                dispatch(registerSuccess(res));
                
          } 
         })

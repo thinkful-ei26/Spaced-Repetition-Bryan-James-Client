@@ -10,16 +10,33 @@ const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            message : null,
+            submitted : false,
+            hasError: null,
+        }
+    }
     onSubmit(values) {
+        this.setState({submitted:true})
         const { username, password, firstName, lastName } = values;
         const user = { username, password, firstName, lastName };
         return this.props.dispatch(registerUser(user))
         .then(other=>{
-            console.log("before asdsd", other);
-        })
+         })
             .catch(err=>{
+                this.setState({hasError:true})
               return this.props.dispatch(registerError(err))
             })
+            .then(()=>{
+
+                if(!this.props.parentError){
+
+                    this.setState({message: "Register Success"})
+                }
+            })
+
     }
 
     render() {
@@ -32,7 +49,7 @@ export class RegistrationForm extends React.Component {
             registerBtn = (<a className="waves-effect waves-teal lighten-2 btn-flat center disabled">Register</a>)
         }
         let errorMessage;
-        let successMessage;
+        let successMessage = this.state.message;
         if (this.props.parentError) {
             errorMessage = (<p className="message message-error">{this.props.parentError.reason}</p>);
         }
@@ -43,7 +60,7 @@ export class RegistrationForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                  {errorMessage}
-                 {successMessage}
+                 <p>{successMessage}</p>
                 <label htmlFor="firstName">First name</label>
                 <Field component={Input} type="text" name="firstName" />
                 <label htmlFor="lastName">Last name</label>

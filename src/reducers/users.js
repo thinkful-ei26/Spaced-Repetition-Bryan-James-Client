@@ -14,6 +14,7 @@ export function registerReducer (state=initalState, action){
       });
   }
   else if (action.type === 'REGISTER_SUCCESS') {
+    
       return Object.assign({}, state, {
           loading: false,
           username: action.data.username,

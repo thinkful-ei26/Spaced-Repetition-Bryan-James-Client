@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import RegistrationForm from './registration-form'
 
@@ -12,7 +12,7 @@ export function RegistrationPage(props) {
   }
   return (
     <div className='container'>
-      <span className="center">
+      <span className='center'>
         <h2>Register for Easy as Pie-thon</h2>
       </span>
       <div className='card'>

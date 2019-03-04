@@ -26,8 +26,13 @@ export class Progress extends Component {
     return (
       <div className='center'>
         <p className='score center-align white-text flow-text'>Session Score: {this.props.score} / 10</p>
+<<<<<<< HEAD
         <img src={this.state.pieImage[this.props.score]} alt='pie-progress pic' />
       </div>
+=======
+        <img src={this.state.pieImage[this.props.score]} alt='pie-progress pic'/>
+     </div>
+>>>>>>> bc6ec5bf161a4bd852b0cef6924a53eec7645c6f
     )
   }
 }

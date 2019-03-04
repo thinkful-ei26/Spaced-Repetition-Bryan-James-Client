@@ -14,17 +14,18 @@ An application for learning the Python Programming language using the Spaced Rep
 
 [Live deploy at: https://bryan-james-learn-python.herokuapp.com](https://bryan-james-learn-python.herokuapp.com)
 
-### Working on the project
+#### Demo Credentials:
 
-[Google Slides Presentation](https://docs.google.com/presentation/d/1-WYmMLNoTNFcqtBMfmgNPKyMWELFLX6VWyKyfhiedBU/edit?usp=sharing)
+- UN: demo
+- PW: demopassword1
 
 ## Tech Stack:
 
--   React for the frontend
--   Redux for state management
--   Node for the backend
--   Express backend framework
--   MongoDB for the database
--   JWTs for authentication
--   Mocha and Chai for endpoint testing
--   Enzyme for React component testing
+- React for the frontend
+- Redux for state management
+- Node for the backend
+- Express backend framework
+- MongoDB for the database
+- JWTs for authentication
+- Mocha and Chai for endpoint testing
+- Enzyme for React component testing

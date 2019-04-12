@@ -16,8 +16,8 @@ An application for learning the Python Programming language using the Spaced Rep
 
 #### Demo Credentials:
 
-- UN: demo
-- PW: demopassword1
+- UN: TrialAccount
+- PW: password123
 
 ## Tech Stack:
 
@@ -29,3 +29,69 @@ An application for learning the Python Programming language using the Spaced Rep
 - JWTs for authentication
 - Mocha and Chai for endpoint testing
 - Enzyme for React component testing
+
+## Schema
+
+### User
+
+```js
+{
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  questions: [
+    { _id: mongoose.Schema.Types.ObjectId,
+       Question: String,
+        Answer: String,
+        m : Number,
+        next : Number,
+        id: Number
+    }],
+  head: {
+         type : Number,
+         default: 0
+       },
+  levelTwoQuestionPool: [
+    {
+      question: { type: mongoose.Schema.Types.String, ref: 'Question' },
+      timesCorrect: Number,
+      timesWrong: Number,
+    },
+  ],
+}
+```
+
+### QuestionData
+
+```js
+{
+  Question: { type: String, required: true },
+  Answer: { type: String, required: true },
+}
+```
+
+## API Overview
+
+```text
+
+/api
+├── /auth
+│   └── POST
+│       ├── /login
+│       └── /refresh
+│   └── DELETE
+│       └── /:id
+├── /data
+│   └── POST
+│       └── /
+├── /next
+│   └── POST
+│       └── /
+├── /all
+│   └── POST
+│       └── /
+├── /reset
+│   └── GET
+│       └── /
+```

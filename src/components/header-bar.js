@@ -31,7 +31,7 @@ export class HeaderBar extends React.Component {
     let trialBtn = (
       <li>
         <Link to='/trial' className='waves-effect waves-light btn'>
-          Trial
+          Question Bank
         </Link>
       </li>
     )
